@@ -295,7 +295,7 @@ window.ARTICLES = [
     series: "melbourne",
     no: 7,
     size: "",
-    title: "Geelong, an Open-Air Museum of the Everyday",
+    title: "Geelong: An Open-Air Museum, Every Day",
     dek: "Geelong 的藝術性是「市民的、日常的、非精緻化的」——巷弄壁畫、海濱地景裝置、社區共創——跟 Melbourne 那種畫廊/機構型藝術資本氣質不同",
     date: "18 Jun 2026",
 
