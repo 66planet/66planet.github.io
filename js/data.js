@@ -63,7 +63,7 @@ window.ARTICLES = [
     image: "image/m/melbourne-01.jpg",
     hero: "image/m/melbourne-01.jpg",
     heroCaption:
-      "Southern Cross Station- Under a roof shaped like waves, the journey quietly begins.",
+      "搭SkyBus抵達CBD. Arrived in the CBD by SkyBus, first stop under Southern Cross's wave-like roof.",
     inline: [
       "image/m/melbourne-01g-inline.jpg",
       "image/m/melbourne-01h-inline.jpg",
@@ -94,7 +94,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-02.jpg",
     hero: "image/m/melbourne-02.jpg",
-    heroCaption: "Singapore Airlines: the same midnight layover, twenty-three years later.",
+    heroCaption: "The 96 heading for the beach, windows down.",
 
     inline: [
       "image/m/melbourne-02b-inline.jpg",
@@ -124,7 +124,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-03.jpg",
     hero: "image/m/melbourne-03.jpg",
-    heroCaption: "Melbourne CBD — Hoddle Grid - Straight lines drawn in 1837, still holding the whole city together.",
+    heroCaption: "Melbourne CBD Map",
 
     inline: [
       "image/m/melbourne-03a-inline.jpeg",
@@ -247,7 +247,7 @@ window.ARTICLES = [
     pullquote:
       "Bushland, open grass, and salt riding on the wind.",
     body: [
-      "從 Boneo Road car park 出發，走的是 Bushrangers Bay Track——步道先沿著 Main Creek 穿行，兩側是濃密的灌木林投下的陰影，途中常能遇見袋鼠在林間低頭吃草。走著走著，林地漸漸讓位給開闊的草原，風開始從海的方向吹過來，遠遠能望見海岸線與 Bass Strait 的深藍——那是 Bushrangers Bay 的方向，只是這次，我沒有走到沙灘，就停在了那片草原與林徑之間。",
+      "從 Boneo Road car park 出發，走的是 Bushrangers Bay Track——步道先沿著 Main Creek 穿行，兩側是濃密的 banksia 灌木林投下的陰影，途中常能遇見袋鼠在林間低頭吃草。走著走著，林地漸漸讓位給開闊的草原，風開始從海的方向吹過來，遠遠能望見海岸線與 Bass Strait 的深藍——那是 Bushrangers Bay 的方向，只是這次，我沒有走到沙灘，就停在了那片草原與林徑之間。",
       "這片海灣的名字本身就是故事： 1853 年，兩名從塔斯馬尼亞逃脫的逃犯（bushrangers）據說在這裡登陸，海灣因此得名。海水不建議下水——強勁的離岸流與大浪讓這裡始終保持著一種未馴服的野性，也因此，它至今仍是那種只有走到才能抵達、開車到不了的秘境沙灘。",
       
     ],
@@ -282,7 +282,7 @@ window.ARTICLES = [
     ],
 
     pullquote:
-      "Sea, land, and sky — one journey, three ways across."",
+      "Half the film was on the screen; the other half was the city behind it.",
     body: [
       "規劃整個旅程時，一直對 Geelong 排不進去感到兩難——直到有天 Sue 在跟我確認 Rye 的行程時，直接說要帶我一起搭 Searoad Ferries。從 Sorrento → Queenscliff。難題忽然有了答案(我就說嘛~這裡怎麼可能沒有Ferry)：不是繞路去 Geelong，是搭船跨過灣口，換一種方式抵達。這段渡輪，橫跨的是港灣收窄成一線的地方——Port Phillip 的南端咽喉，也是整片海灣通往 Bass Strait 的門戶。40 分鐘，取代了繞道墨爾本市區三小時的車程，像是抄了一條海上的近路",
       "Sorrento 這頭，是懸崖上的豪宅、被小艇填滿的靜謐灣澳，石灰岩老屋沿著海岸線鋪展——慵懶又講究的度假岸。Queenscliff 那頭，性格完全不同：黑色燈塔、老砲台要塞、維多利亞式老宅安靜矗立，帶著要塞般的莊重，是通往 Great Ocean Road 的門戶。",
