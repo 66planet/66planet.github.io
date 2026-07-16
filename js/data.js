@@ -247,7 +247,7 @@ window.ARTICLES = [
     pullquote:
       "Bushland, open grass, and salt riding on the wind.",
     body: [
-      "從 Boneo Road car park 出發，走的是 Bushrangers Bay Track——步道先沿著 Main Creek 穿行，兩側是濃密的 banksia 灌木林投下的陰影，途中常能遇見袋鼠在林間低頭吃草。走著走著，林地漸漸讓位給開闊的草原，風開始從海的方向吹過來，遠遠能望見海岸線與 Bass Strait 的深藍——那是 Bushrangers Bay 的方向，只是這次，我沒有走到沙灘，就停在了那片草原與林徑之間。",
+      "從 Boneo Road car park 出發，走的是 Bushrangers Bay Track——步道先沿著 Main Creek 穿行，兩側是濃密的灌木林投下的陰影，途中常能遇見袋鼠在林間低頭吃草。走著走著，林地漸漸讓位給開闊的草原，風開始從海的方向吹過來，遠遠能望見海岸線與 Bass Strait 的深藍——那是 Bushrangers Bay 的方向，只是這次，我沒有走到沙灘，就停在了那片草原與林徑之間。",
       "這片海灣的名字本身就是故事： 1853 年，兩名從塔斯馬尼亞逃脫的逃犯（bushrangers）據說在這裡登陸，海灣因此得名。海水不建議下水——強勁的離岸流與大浪讓這裡始終保持著一種未馴服的野性，也因此，它至今仍是那種只有走到才能抵達、開車到不了的秘境沙灘。",
       
     ],
