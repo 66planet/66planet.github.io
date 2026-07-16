@@ -63,7 +63,7 @@ window.ARTICLES = [
     image: "image/m/melbourne-01.jpg",
     hero: "image/m/melbourne-01.jpg",
     heroCaption:
-      "搭SkyBus抵達CBD. Arrived in the CBD by SkyBus, first stop under Southern Cross's wave-like roof.",
+      "Southern Cross Station- Under a roof shaped like waves, the journey quietly begins.",
     inline: [
       "image/m/melbourne-01g-inline.jpg",
       "image/m/melbourne-01h-inline.jpg",
@@ -94,7 +94,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-02.jpg",
     hero: "image/m/melbourne-02.jpg",
-    heroCaption: "The 96 heading for the beach, windows down.",
+    heroCaption: "Singapore Airlines: the same midnight layover, twenty-three years later.",
 
     inline: [
       "image/m/melbourne-02b-inline.jpg",
@@ -124,7 +124,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-03.jpg",
     hero: "image/m/melbourne-03.jpg",
-    heroCaption: "Melbourne CBD Map",
+    heroCaption: "Melbourne CBD — Hoddle Grid - Straight lines drawn in 1837, still holding the whole city together.",
 
     inline: [
       "image/m/melbourne-03a-inline.jpeg",
@@ -282,7 +282,7 @@ window.ARTICLES = [
     ],
 
     pullquote:
-      "Half the film was on the screen; the other half was the city behind it.",
+      "Sea, land, and sky — one journey, three ways across."",
     body: [
       "規劃整個旅程時，一直對 Geelong 排不進去感到兩難——直到有天 Sue 在跟我確認 Rye 的行程時，直接說要帶我一起搭 Searoad Ferries。從 Sorrento → Queenscliff。難題忽然有了答案(我就說嘛~這裡怎麼可能沒有Ferry)：不是繞路去 Geelong，是搭船跨過灣口，換一種方式抵達。這段渡輪，橫跨的是港灣收窄成一線的地方——Port Phillip 的南端咽喉，也是整片海灣通往 Bass Strait 的門戶。40 分鐘，取代了繞道墨爾本市區三小時的車程，像是抄了一條海上的近路",
       "Sorrento 這頭，是懸崖上的豪宅、被小艇填滿的靜謐灣澳，石灰岩老屋沿著海岸線鋪展——慵懶又講究的度假岸。Queenscliff 那頭，性格完全不同：黑色燈塔、老砲台要塞、維多利亞式老宅安靜矗立，帶著要塞般的莊重，是通往 Great Ocean Road 的門戶。",
