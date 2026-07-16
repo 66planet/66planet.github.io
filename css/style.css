@@ -1,0 +1,762 @@
+/* ============================================================
+   Overland, Again — 旅行札記網站樣式表
+   ------------------------------------------------------------
+   排版原則：每個屬性各自一行、有縮排，方便尋找與維護。
+   想改整體配色 / 字型：只改最下面沒有的話，改 :root 變數即可。
+   ============================================================ */
+
+/* ============================================================
+   1. 設計變數（配色與字型）— 想重新換色換字，改這裡
+   ============================================================ */
+:root {
+  /* 顏色 */
+  --paper: #ffffff; /* 背景底色 */
+  --ink: #191712; /* 主要文字（近黑） */
+  --muted: #8a8578; /* 次要 / 灰字 */
+  --body: #3a362d; /* 內文顏色 */
+  --accent: #c1502e; /* 重點色（赭紅）— 全站唯一強調色 */
+  --rule: #191712; /* 分隔線顏色 */
+  --rule-soft: rgba(25, 23, 18, 0.2); /* 淡分隔線 */
+
+  /* 字型 */
+  --serif: "Libre Caslon Display", Georgia, serif; /* 標題用襯線體 */
+  --read: "Newsreader", Georgia, serif; /* 內文用襯線體 */
+  --grotesk:
+    "Archivo", system-ui, -apple-system, sans-serif; /* 標籤 / 小字無襯線 */
+
+  /* 版面尺寸 */
+  --maxw: 1240px; /* 內容最大寬度 */
+  --pad: 44px; /* 左右留白 */
+}
+
+/* ============================================================
+   2. 全域基礎樣式
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--read);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* 內容置中的外框容器 */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad) 96px;
+}
+
+/* ============================================================
+   3. 共用小元件
+   ============================================================ */
+
+/* 小標籤（例如「MELBOURNE · No. 01」） */
+.kicker {
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.rule-top {
+  border-top: 2px solid var(--rule);
+}
+
+/* ============================================================
+   4. 頂部導覽列（系列分頁 + 左上 logo）
+   ============================================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 18px 0 20px;
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* 左上 logo（火車 icon + 「23° SOUTH」文字） */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.brand__icon {
+  display: block;
+  flex: none;
+}
+
+.brand__mark {
+  font-family: var(--grotesk);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* 系列分頁按鈕 */
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.tab {
+  padding: 7px 14px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ink);
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.tab:hover {
+  border-color: var(--ink);
+}
+
+/* 目前所在分頁：反白 */
+.tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.tab .no {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.tab.is-active .no {
+  color: var(--paper);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   5. 首頁大標題區（masthead）
+   ============================================================ */
+.masthead {
+  border-top: 2px solid var(--rule);
+  padding-top: 14px;
+}
+
+.masthead__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* 主標「Overland, Again」 */
+.masthead h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(52px, 11.5vw, 132px); /* 隨螢幕縮放 */
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+}
+
+/* 主標旁的副標一句話（不換行） */
+.masthead__sub {
+  margin: 0 0 14px;
+  max-width: none;
+  font-size: px;
+  line-height: 1.42;
+  color: var(--body);
+  font-style: italic;
+  white-space: nowrap; /* 強制單行；手機若跑版可改回 normal */
+}
+
+/* ============================================================
+   6. 系列頁標題（melbourne.html / adelaide.html 用）
+   ============================================================ */
+.series-head {
+  border-top: 1px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  margin-top: 20px;
+  padding: 16px 0;
+}
+
+.series-head .no {
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.series-head h2 {
+  margin: 4px 0 8px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 38px);
+}
+
+.series-head p {
+  margin: 0;
+  max-width: none;
+  color: var(--body);
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* ============================================================
+   7. 首頁的「兩個系列」導引區（series map）
+   ============================================================ */
+.series-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  margin-top: 20px;
+}
+
+.series-map a {
+  display: block;
+  padding: 14px 22px;
+  border-right: 1px solid var(--rule-soft); /* 每欄右邊都有線 */
+}
+
+.series-map a:first-child {
+  padding-left: 0px;
+}
+
+.series-map a:last-child {
+  border-right: 0;
+}
+
+.series-map .name {
+  margin-top: 2px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 30px);
+}
+
+.series-map a:hover .name {
+  color: var(--accent);
+}
+
+/* 手機：兩欄改成上下一欄 */
+@media (max-width: 560px) {
+  .series-map {
+    grid-template-columns: 1fr;
+  }
+  .series-map a {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule-soft);
+    padding-left: 0;
+  }
+  .series-map a:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ============================================================
+   8. 文章卡片格線（首頁 / 系列頁）
+   ============================================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 46px 34px;
+  margin-top: 44px;
+  align-items: start;
+}
+
+/* Adelaide / The Overland 系列頁：大圖＋下方兩小圖版面 */
+body[data-series="melbourne"] .grid,
+body[data-series="adelaide"] .grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card--theOverland {
+  grid-column: 1 / -1;
+}
+
+.card--theOverland .card__media img {
+  height: auto;
+  object-fit: contain;
+}
+
+.card--theOverland .card__title {
+  margin-top: 8px;
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.2;
+}
+
+.card--theOverland .card__dek {
+  font-size: 21px;
+  max-width: none;
+}
+
+.card--theOverland .card__topline .muted {
+  color: var(--muted);
+}
+
+
+.card__link {
+  display: block;
+}
+
+/* 卡片圖片 */
+.card__media {
+  overflow: hidden;
+  background: #e9e3d6;
+}
+
+.card__media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* 滑鼠移入時圖片微放大 */
+.card__link:hover .card__media img {
+  transform: scale(1.03);
+}
+
+/* 卡片上方那行標籤 */
+.card__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  gap: 12px;
+}
+
+.card__topline .muted {
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 卡片標題 */
+.card__title {
+  margin: 6px 0 10px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+}
+
+/* 沒有圖片的卡片：上方加分隔線 */
+.card--noimg .card__topline {
+  border-top: 1.5px solid var(--rule);
+  padding-top: 14px;
+}
+
+/* 卡片介紹文字 */
+.card__dek {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+/* 「Read the piece →」 */
+.readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: var(--grotesk);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.readmore i {
+  color: var(--accent);
+  font-style: normal;
+  transition: transform 0.2s;
+}
+
+.card__link:hover .readmore i {
+  transform: translateX(4px);
+}
+
+/* ---------- 特大卡片（feature）：橫跨兩欄、字級加大 ---------- */
+.card--feature {
+  grid-column: span 2;
+}
+
+.card--feature .card__media img {
+  height: 100%;
+}
+
+.card--feature .card__title {
+  margin-top: 8px;
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.2;
+}
+
+.card--feature .card__dek {
+  font-size: 21px;
+  max-width: none; /* 用滿卡片寬度，少換行 */
+}
+
+.card--feature .card__topline .muted {
+  color: var(--muted);
+}
+
+/* ---------- 引言卡片（赭紅底色的大引言） ---------- */
+.card--accent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  padding: 28px 26px;
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.card--accent .lbl {
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+.card--accent blockquote {
+  margin: 16px 0;
+  font-family: var(--serif);
+  font-size: 27px;
+  line-height: 1.14;
+}
+
+.card--accent .src {
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* 手機：特大卡片改回單欄、圖片降低高度 */
+@media (max-width: 720px) {
+  .card--feature {
+    grid-column: span 1;
+  }
+  .card--feature .card__media img {
+    height: 100%;
+  }
+}
+
+/* ============================================================
+   9. 頁尾（首頁 / 系列頁）
+   ============================================================ */
+.site-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--rule);
+  margin-top: 64px;
+  padding-top: 16px;
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-foot .brand {
+  color: var(--ink);
+}
+
+/* ============================================================
+   10. 文章內頁（article.html）
+   ============================================================ */
+
+/* 文章標題區 */
+.article-head {
+  border-top: 2px solid var(--rule);
+  padding-top: 18px;
+  max-width: 920px;
+}
+
+.article-head h1 {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 8vw, 76px);
+  line-height: 0.99;
+  letter-spacing: -0.015em;
+}
+
+/* 作者 / 日期那行 */
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+  font-family: var(--grotesk);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 大圖（hero） */
+.hero {
+  margin-top: 32px;
+  overflow: hidden;
+  background: #e9e3d6;
+}
+
+.hero img,
+.hero video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 圖說 */
+.caption {
+  margin: 10px 0 0;
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 直式 hero（在 data.js 該篇加 heroPortrait: true 才會套用）：
+   不裁切、置中顯示、限制高度。首頁縮圖 (.card__media) 不受影響。 */
+.hero--portrait {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.hero--portrait img,
+.hero--portrait video {
+  width: auto;
+  max-width: min(100%, 520px);
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+/* ---------- 文章正文 ---------- */
+/* 註：已改為「單欄」顯示（保留最大寬度 1040）。
+   若想改回雙欄，把 column-count 設回 2 並加 column-gap: 48px。 */
+.article-body {
+  max-width: 1040px;
+  margin: 44px auto 0;
+  column-count: 1;
+}
+
+.article-body p {
+  margin: 0 0 20px;
+  font-size: 19px;
+  line-height: 1.62;
+  color: #26231c;
+  break-inside: avoid-column;
+}
+
+/* 文中大引言 */
+.article-body blockquote {
+  margin: 6px 0 26px;
+  padding: 20px 0;
+  border-top: 1.5px solid var(--rule);
+  border-bottom: 1.5px solid var(--rule);
+  break-inside: avoid;
+}
+
+.article-body blockquote p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.14;
+}
+
+/* 手機：正文寬度收窄 */
+@media (max-width: 760px) {
+  .article-body {
+    max-width: 640px;
+  }
+}
+
+/* ---------- 文中插圖（inline） ---------- */
+/* 預設＝橫式：滿版寬、固定高度、裁切填滿 */
+.inline-figure {
+  margin: 44px auto 0;
+  max-width: 1040px;
+  overflow: hidden;
+  background: #e9e3d6;
+}
+
+.inline-figure img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 42vw, 420px);
+  object-fit: cover;
+}
+
+.inline-figure .caption {
+  margin: 10px 4px 0;
+}
+
+/* 直式照片（在 data.js 該篇加 inlinePortrait: true 才會套用）：
+   不裁切、靠左、限制高度 */
+.inline-figure--portrait {
+  background: transparent;
+  overflow: visible;
+}
+
+.inline-figure--portrait img {
+  width: auto;
+  max-width: min(100%, 460px);
+  height: auto;
+  max-height: 78vh;
+  margin: 0; /* 靠左對齊 */
+  object-fit: contain;
+}
+
+.inline-figure--portrait .caption {
+  text-align: left;
+}
+
+/* 兩張以上 inline 圖片並排（main.js 依 data.js 的 inline 陣列自動加上此外框） */
+.inline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 44px auto 0;
+  max-width: 1040px;
+}
+
+.inline-row .inline-figure {
+  margin: 0;
+  flex: 0 1 calc(25% - 3px);
+  max-width: calc(25% - 3px);
+  min-width: 160px;
+}
+
+
+
+
+/* 橫式圖片：一排兩張，超過換行；高度依原圖比例，不裁切 */
+.inline-row .inline-figure--landscape {
+  flex: 1 1 calc(50% - 2px);
+  max-width: calc(50% - 2px);
+  min-width: 200px;
+}
+
+.inline-row .inline-figure--landscape img {
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- 文章頁尾（上一篇 / 下一篇） ---------- */
+.article-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--rule);
+  margin-top: 56px;
+  padding-top: 16px;
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.article-foot a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.article-foot .arrow {
+  color: var(--accent);
+}
+
+.article-foot .next {
+  color: var(--muted);
+  text-align: right;
+}
+
+.article-foot .next b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ============================================================
+   11. 找不到文章 / 空狀態
+   ============================================================ */
+.empty {
+  padding: 60px 0;
+  font-family: var(--grotesk);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.series-divider {
+  grid-column: 1 / -1;
+  border-top: 2px solid var(--rule);
+  margin: 10px 0;
+}
+
