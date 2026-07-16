@@ -301,7 +301,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-07.jpeg",
     hero: "image/m/melbourne-07.jpeg",
-    heroCaption: "Here, art isn't hung on walls — it's woven into the walk."",
+    heroCaption: "THere, art isn't hung on walls — it's woven into the walk.",
 
     inline: [
       "image/m/melbourne-07a-inline.jpeg",
@@ -331,7 +331,7 @@ window.ARTICLES = [
     ],
 
     pullquote:
-      "Half the film was on the screen; the other half was the city behind it.",
+      "Art here isn't hung — it's walked",
     body: [
       "Geelong 的藝術性方向很明確——它不是「藝廊城市」，是「街頭與市民藝術城市」。中央城區與濱海一帶密布巷弄壁畫，一部分由地產所有人委託，一部分由市政府有系統地推動，串成一條 Mural Trail；2022 年更邀來 19 位女性街頭藝術家共同為市中心注入色彩，提升女性在街頭藝術裡的能見度。",
       "濱海一帶則換了一種語言——超過 100 支彩繪木頭人偶裝置 Baywalk Bollards，沿著三公里海濱步道排開，由在地藝術家 Jan Mitchell 創作，記錄著這座城市過去與現在的重要人物，走一段路，就像翻閱一頁一頁的地方誌。",
