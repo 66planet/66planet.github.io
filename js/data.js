@@ -301,7 +301,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-07.jpeg",
     hero: "image/m/melbourne-07.jpeg",
-    heroCaption: "THere, art isn't hung on walls — it's woven into the walk.",
+    heroCaption: "Here, art isn't hung on walls — it's woven into the walk.",
 
     inline: [
       "image/m/melbourne-07a-inline.jpeg",
