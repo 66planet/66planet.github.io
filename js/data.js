@@ -63,7 +63,7 @@ window.ARTICLES = [
     image: "image/m/melbourne-01.jpg",
     hero: "image/m/melbourne-01.jpg",
     heroCaption:
-      "搭SkyBus抵達CBD. Arrived in the CBD by SkyBus, first stop under Southern Cross's wave-like roof.",
+      "Southern Cross Station-Under a roof shaped like waves, the journey quietly begins.",
     inline: [
       "image/m/melbourne-01g-inline.jpg",
       "image/m/melbourne-01h-inline.jpg",
@@ -94,7 +94,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-02.jpg",
     hero: "image/m/melbourne-02.jpg",
-    heroCaption: "The 96 heading for the beach, windows down.",
+    heroCaption: "Singapore Airlines: the same midnight layover, twenty-three years later.",
 
     inline: [
       "image/m/melbourne-02b-inline.jpg",
@@ -124,7 +124,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-03.jpg",
     hero: "image/m/melbourne-03.jpg",
-    heroCaption: "Melbourne CBD Map",
+    heroCaption: "Melbourne CBD — Hoddle Grid - Straight lines drawn in 1837, still holding the whole city together.",
 
     inline: [
       "image/m/melbourne-03a-inline.jpeg",
@@ -172,7 +172,7 @@ window.ARTICLES = [
     no: 4,
     size: "",
     title: "Hawthorn to Rye: Two Homes, One Australian Life",
-    dek: "Deck chairs, a warm wind, and the skyline doing the work of a screen.",
+    dek: "另一種「澳洲生活」——更慢，更靠海，更沒有邊界。",
     date: "June 2026",
 
     image: "image/m/melbourne-04.jpg",
@@ -259,12 +259,12 @@ window.ARTICLES = [
     no: 6,
     size: "",
     title: "Sorrento-Queenscliff",
-    dek: "Deck chairs, a warm wind, and the skyline doing the work of a screen.",
+    dek: "陸海空，三種方式，橫跨同一個南半球。",
     date: "18 Jun 2026",
 
     image: "image/m/melbourne-06.jpeg",
     hero: "image/m/melbourne-06.jpeg",
-    heroCaption: "The skyline glows behind the screen as the film starts.",
+    heroCaption: "橫跨的是港灣收窄成一線的地方——Port Phillip 的南端咽喉",
 
     inline: [
       "image/m/melbourne-06a-inline.jpeg",
@@ -282,7 +282,7 @@ window.ARTICLES = [
     ],
 
     pullquote:
-      "Half the film was on the screen; the other half was the city behind it.",
+      "A ferry solved what the itinerary couldn't.",
     body: [
       "規劃整個旅程時，一直對 Geelong 排不進去感到兩難——直到有天 Sue 在跟我確認 Rye 的行程時，直接說要帶我一起搭 Searoad Ferries。從 Sorrento → Queenscliff。難題忽然有了答案(我就說嘛~這裡怎麼可能沒有Ferry)：不是繞路去 Geelong，是搭船跨過灣口，換一種方式抵達。這段渡輪，橫跨的是港灣收窄成一線的地方——Port Phillip 的南端咽喉，也是整片海灣通往 Bass Strait 的門戶。40 分鐘，取代了繞道墨爾本市區三小時的車程，像是抄了一條海上的近路",
       "Sorrento 這頭，是懸崖上的豪宅、被小艇填滿的靜謐灣澳，石灰岩老屋沿著海岸線鋪展——慵懶又講究的度假岸。Queenscliff 那頭，性格完全不同：黑色燈塔、老砲台要塞、維多利亞式老宅安靜矗立，帶著要塞般的莊重，是通往 Great Ocean Road 的門戶。",
@@ -301,7 +301,7 @@ window.ARTICLES = [
 
     image: "image/m/melbourne-07.jpeg",
     hero: "image/m/melbourne-07.jpeg",
-    heroCaption: "The skyline glows behind the screen as the film starts.",
+    heroCaption: "Here, art isn't hung on walls — it's woven into the walk."",
 
     inline: [
       "image/m/melbourne-07a-inline.jpeg",
@@ -333,8 +333,9 @@ window.ARTICLES = [
     pullquote:
       "Half the film was on the screen; the other half was the city behind it.",
     body: [
-      "On my last night I climbed to a rooftop where they show films under the open sky. Deck chairs, a bar, a warm northerly wind, and the whole city lit up behind the screen.",
-      "I confess I watched the skyline more than the movie. There are worse ways to say goodbye to a place — up high, in the dark, with the lights of the city standing in for the credits.",
+      "Geelong 的藝術性方向很明確——它不是「藝廊城市」，是「街頭與市民藝術城市」。中央城區與濱海一帶密布巷弄壁畫，一部分由地產所有人委託，一部分由市政府有系統地推動，串成一條 Mural Trail；2022 年更邀來 19 位女性街頭藝術家共同為市中心注入色彩，提升女性在街頭藝術裡的能見度。",
+      "濱海一帶則換了一種語言——超過 100 支彩繪木頭人偶裝置 Baywalk Bollards，沿著三公里海濱步道排開，由在地藝術家 Jan Mitchell 創作，記錄著這座城市過去與現在的重要人物，走一段路，就像翻閱一頁一頁的地方誌。",
+    
     ],
   },
 
