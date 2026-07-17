@@ -8,9 +8,18 @@
   var pad = function (n) {
     return String(n).padStart(2, "0");
   };
+  // HTML 輸出編碼：所有動態值都必須經過此函式，避免 XSS。
+  // 除了 & < > " 之外，額外轉義 ' 與 ` 以涵蓋各種屬性引號情境（縱深防禦）。
   var esc = function (s) {
-    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    return String(s == null ? "" : s).replace(/[&<>"'`]/g, function (c) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+        "`": "&#96;",
+      }[c];
     });
   };
   var qs = function (k) {
@@ -246,7 +255,7 @@
     })[0];
     if (!a) {
       root.innerHTML =
-        '<p class="empty">Story not found. <a href="index.html" style="color:var(--accent)">Back to the index &rarr;</a></p>';
+        '<p class="empty">Story not found. <a class="link-accent" href="index.html">Back to the index &rarr;</a></p>';
       return;
     }
     document.title = a.title + " · " + (SITE.title || "");
@@ -302,9 +311,10 @@
         ? [a.inlineCaption]
         : [];
        var inlineFigures = inlineList.map(function (src, i) {
+      // 註：不再使用 inline onload（違反安全規格 14.2 且 Checkmarx 會標記內聯事件）。
+      // 改為在下方以 addEventListener 綁定，依原圖長寬比切換橫式版面。
       return '<figure class="inline-figure' + (a.inlinePortrait ? " inline-figure--portrait" : "") +
-        '"><img src="' + esc(src) + '" alt="' + esc(a.title) + '" ' +
-        'onload="this.closest(\'figure\').classList.toggle(\'inline-figure--landscape\', this.naturalWidth>=this.naturalHeight)">' +
+        '"><img src="' + esc(src) + '" alt="' + esc(a.title) + '">' +
         (inlineCaptions[i] ? '<figcaption class="caption">' + esc(inlineCaptions[i]) + "</figcaption>" : "") +
         "</figure>";
     });
@@ -353,6 +363,26 @@
           "</b></a>"
         : '<span class="next muted">End of the series</span>') +
       "</footer>";
+
+    // 依原圖長寬比為橫式插圖加上 landscape 版面類別。
+    // 以 addEventListener 綁定（非內聯事件），並處理已快取（complete）的圖片。
+    var inlineImgs = root.querySelectorAll(".inline-figure img");
+    Array.prototype.forEach.call(inlineImgs, function (img) {
+      var applyRatio = function () {
+        var fig = img.closest("figure");
+        if (fig) {
+          fig.classList.toggle(
+            "inline-figure--landscape",
+            img.naturalWidth >= img.naturalHeight,
+          );
+        }
+      };
+      if (img.complete && img.naturalWidth) {
+        applyRatio();
+      } else {
+        img.addEventListener("load", applyRatio);
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
