@@ -21,6 +21,260 @@
       </div>
     </header>
 
+    <!-- ============================================================
+         首頁路線地圖 Route Map（2026 依序經過的十五個地點）
+         樣式見 css/style.css 的「13. 首頁路線地圖」區塊
+         ============================================================ -->
+    <figure class="route-map">
+      <div class="route-map__frame">
+        <svg class="route-map__svg" viewBox="0 0 1088 470" role="img"
+             aria-labelledby="routeMapTitle routeMapDesc"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="routeMapTitle">Overland, Again — 2026 路線地標圖</title>
+          <desc id="routeMapDesc">南澳與維多利亞海岸地圖，以編號標示十五個停留地點，並繪出 Searoad 渡輪、Qantas 班機與 The Overland 列車三段交通路線。</desc>
+
+          <defs>
+            <marker id="railHead" viewBox="0 0 10 10" refX="7" refY="5"
+                    markerWidth="5" markerHeight="5" orient="auto">
+              <path class="m-railhead" d="M1,1 L8,5 L1,9"/>
+            </marker>
+          </defs>
+
+          <!-- 海 -->
+          <rect class="m-sea" x="0" y="0" width="1088" height="470"/>
+
+          <!-- 陸地：南澳＋維多利亞 -->
+          <path class="m-land" d="M 1104 -10 L 1104 306 C 1078.4 330 1043.2 356 1004.8 378 C 985.6 390 966.4 396 953.6 400 C 934.4 404 905.6 398 883.2 388 C 873.6 384 867.2 380 864 378 C 883.2 372 905.6 364 924.8 352 C 944 340 953.6 326 950.4 312 C 947.2 300 934.4 294 918.4 290 C 889.6 284 844.8 282 806.4 286 C 790.4 288 777.6 292 768 298 C 755.2 304 752 312 758.4 320 C 764.8 328 768 336 764.8 346 C 761.6 358 755.2 370 752 378 C 736 384 713.6 386 691.2 384 C 665.6 382 640 378 617.6 378 C 598.4 378 585.6 374 579.2 368 C 572.8 362 563.2 362 553.6 368 C 537.6 376 515.2 382 489.6 386 C 460.8 390 428.8 390 400 386 C 368 382 336 374 307.2 364 C 284.8 356 265.6 346 249.6 336 C 236.8 328 224 318 214.4 310 C 208 302 201.6 292 198.4 284 C 204.8 268 214.4 250 224 230 C 233.6 208 243.2 184 249.6 160 C 256 138 265.6 116 272 98 C 256 98 243.2 106 233.6 118 C 220.8 134 211.2 154 201.6 176 C 192 198 182.4 218 172.8 236 C 166.4 246 160 252 153.6 258 C 140.8 252 131.2 242 124.8 230 C 115.2 212 108.8 192 102.4 172 C 96 150 89.6 128 83.2 106 C 76.8 86 70.4 70 64 58 C 51.2 62 41.6 74 35.2 90 C 25.6 112 16 138 6.4 164 C -3.2 190 -9.6 210 -16 226 L -16 -10 Z"/>
+          <!-- 陸地：袋鼠島 -->
+          <path class="m-land" d="M 195.2 298 C 169.6 292 134.4 290 102.4 296 C 80 300 80 312 102.4 316 C 134.4 322 172.8 316 195.2 306 Z"/>
+
+          <!-- Adelaide Hills 山峰 -->
+          <g class="m-peak">
+            <path d="M 508.8 170 L 524.8 148 L 540.8 170 Z"/>
+            <path d="M 534.4 170 L 553.6 144 L 572.8 170 Z"/>
+            <path d="M 566.4 170 L 582.4 150 L 598.4 170 Z"/>
+            <path d="M 592 170 L 604.8 154 L 617.6 170 Z"/>
+          </g>
+
+          <!-- 地理名稱 -->
+          <text class="m-feat" x="572.8" y="186" text-anchor="middle">Adelaide Hills</text>
+
+          <!-- 州界：南澳 (S.A.) / 維多利亞 (VIC.) -->
+          <path class="m-border" d="M680,96 L680,168"/>
+          <text class="m-border-txt" x="672" y="114" text-anchor="end">S.A.</text>
+          <text class="m-border-txt" x="688" y="114" text-anchor="start">VIC.</text>
+          <text class="m-feat" x="156.8"  y="336" text-anchor="middle">Kangaroo Island</text>
+          <text class="m-feat" x="224" y="392" text-anchor="middle">Southern Ocean</text>
+          <text class="m-feat" x="828.8" y="332" text-anchor="middle">Port Phillip Bay</text>
+          <text class="m-feat" x="528" y="406" text-anchor="middle">Bass Strait</text>
+          <text class="m-feat" x="976" y="444" text-anchor="middle">Mornington Peninsula</text>
+
+          <!-- 航線 Qantas MEL → ADL -->
+          <path class="m-air" d="M 790.4 232 C 713.6 184 617.6 132 505.6 102 C 416 76 323.2 84 275.2 130"/>
+
+          <!-- 國際線：Changi Airport → Melbourne Airport（飛機朝下） -->
+          <path class="m-air" d="M809.6,114 L809.6,233"/>
+          <g class="m-air-icon" transform="translate(809.6,168) rotate(180)">
+            <path d="M0,-8 L1.8,-2.6 L1.8,0 L8,3.6 L8,5.4 L1.8,4 L1.8,6.3 L4,8.5 L4,9.4 L0,8 L-4,9.4 L-4,8.5 L-1.8,6.3 L-1.8,4 L-8,5.4 L-8,3.6 L-1.8,0 L-1.8,-2.6 Z"/>
+          </g>
+          <circle class="m-ring" cx="809.6" cy="104" r="5"/>
+          <text class="m-name" x="809.6" y="90" text-anchor="middle">CHANGI AIRPORT</text>
+          <g class="m-air-icon" transform="translate(441.6,88) rotate(-108)">
+            <path d="M0,-8 L1.8,-2.6 L1.8,0 L8,3.6 L8,5.4 L1.8,4 L1.8,6.3 L4,8.5 L4,9.4 L0,8 L-4,9.4 L-4,8.5 L-1.8,6.3 L-1.8,4 L-8,5.4 L-8,3.6 L-1.8,0 L-1.8,-2.6 Z"/>
+          </g>
+
+          <!-- The Overland 鐵道（阿德萊德 → 墨爾本） -->
+          <path class="m-rail" marker-end="url(#railHead)"
+                d="M322,214 C440,252 545,258 640,258 C734,258 812,270 866,278"/>
+
+          <!-- Searoad Ferries 航線 -->
+          <path class="m-ferry" d="M 851.2 384 C 825.6 398 784 398 764.8 384"/>
+
+          <!-- 各地小圖標 -->
+          <g class="m-icon">
+            <g transform="translate(252.8,160)"><!-- Glenelg 老橡膠樹 -->
+              <path d="M0,9 V-1"/><path d="M0,2 L-3.5,-0.5"/><path d="M0,0.5 L3.5,-2"/>
+              <ellipse cx="0" cy="-4.5" rx="7.5" ry="5"/>
+            </g>
+            <g transform="translate(355.2,130)"><!-- Adelaide 教堂尖頂 -->
+              <path d="M-4,8 V-2 L0,-8.5 L4,-2 V8 Z"/><path d="M0,-8.5 V-11.5"/>
+              <path d="M-1.8,-10 H1.8"/><path d="M-1.4,8 V4 H1.4 V8"/><path d="M-6.5,8 H6.5"/>
+            </g>
+            <g transform="translate(313.6,184)"><!-- Parklands 月台與軌道 -->
+              <path d="M-8,-4 L0,-7.5 L8,-4"/><path d="M-6,-4 V2.5"/><path d="M6,-4 V2.5"/>
+              <path d="M-8,2.5 H8"/><path d="M-6.5,5.5 H6.5"/><path d="M-6.5,7.5 H6.5"/>
+              <path d="M-3.5,5.5 V7.5"/><path d="M3.5,5.5 V7.5"/>
+            </g>
+            <g transform="translate(409.6,174)"><!-- Hahndorf 半木構 Fachwerk -->
+              <path d="M-6.5,7.5 V-1.5 H6.5 V7.5 Z"/><path d="M-8,-1.5 L0,-8 L8,-1.5"/>
+              <path d="M-4,-1.5 L4,7.5"/><path d="M4,-1.5 L-4,7.5"/>
+            </g>
+            <g transform="translate(809.6,222)"><!-- Melbourne Airport 飛機 -->
+              <path d="M0,-8 L1.8,-2.6 L1.8,0 L8,3.6 L8,5.4 L1.8,4 L1.8,6.3 L4,8.5 L4,9.4 L0,8 L-4,9.4 L-4,8.5 L-1.8,6.3 L-1.8,4 L-8,5.4 L-8,3.6 L-1.8,0 L-1.8,-2.6 Z"/>
+            </g>
+            <g transform="translate(876.8,260)"><!-- Southern Cross 波浪屋頂 -->
+              <path d="M-9,-2 q2.25,-3.6 4.5,0 t4.5,0 t4.5,0 t4.5,0"/><path d="M-8,5.5 H8"/>
+              <path d="M-4.5,-0.5 V5.5"/><path d="M0,-0.5 V5.5"/><path d="M4.5,-0.5 V5.5"/>
+            </g>
+            <g transform="translate(931.2,240)"><!-- Melbourne CBD 霍德爾方格網 -->
+              <g transform="rotate(-8)">
+                <path d="M-7.5,-5.5 H7.5 V5.5 H-7.5 Z"/><path d="M-7.5,-1.8 H7.5"/>
+                <path d="M-7.5,1.8 H7.5"/><path d="M-2.6,-5.5 V5.5"/><path d="M2.6,-5.5 V5.5"/>
+              </g>
+            </g>
+            <g transform="translate(742.4,296)"><!-- Geelong 彩繪木頭人偶 -->
+              <path d="M-3.2,7.5 V-1 H3.2 V7.5"/><circle cx="0" cy="-4.2" r="3"/>
+              <path d="M-5.5,-6.5 H5.5"/><path d="M-2.8,-6.5 V-9.2 H2.8 V-6.5"/>
+            </g>
+            <g transform="translate(752,350)"><!-- Queenscliff 黑燈塔 -->
+              <path class="m-icon-solid" d="M-3.6,6.5 L-2.7,-2 H2.7 L3.6,6.5 Z"/>
+              <path d="M-2.3,-2 V-5.6 H2.3 V-2"/><path d="M-3.2,-5.6 L0,-8.4 L3.2,-5.6"/>
+              <path d="M-5.5,6.5 H5.5"/>
+            </g>
+            <g transform="translate(808,424)"><!-- Searoad Ferries 渡輪 -->
+              <path d="M-8.5,2 L-6.5,6.5 H6.5 L8.5,2 Z"/><path d="M-5,2 V-2.8 H2.8 V2"/>
+              <path d="M3.8,-2.8 V-6.5 H6 V2"/><path d="M-1.8,-2.8 V-6.5"/>
+            </g>
+            <g transform="translate(864,350)"><!-- Sorrento 棧橋 -->
+              <path d="M-8.5,0 H5.5"/><path d="M-5.5,0 V4.6"/><path d="M-1.8,0 V4.6"/>
+              <path d="M1.8,0 V4.6"/><path d="M5.5,0 V-4.6 H10 V0"/><path d="M4.6,-4.6 L7.8,-7.4 L11,-4.6"/>
+            </g>
+            <g transform="translate(924.8,334)"><!-- Rye 海灘小屋 -->
+              <path d="M-6.5,-1.8 L0,-6.5 L6.5,-1.8"/><path d="M-5,-1.8 V5.5 H5 V-1.8"/>
+              <path d="M-1.8,5.5 V1.4 H1.8 V5.5"/>
+            </g>
+            <g transform="translate(953.6,372)"><!-- Cape Schanck 燈塔 -->
+              <path d="M-3.2,9 L-2.3,-5.5 H2.3 L3.2,9 Z"/><path d="M-3.2,-5.5 H3.2"/>
+              <path d="M-2.3,-5.5 V-10 H2.3 V-5.5"/><path d="M-3.2,-10 L0,-13 L3.2,-10"/>
+              <path d="M-5.5,9 H5.5"/><path d="M4,-7.6 L7,-8.6"/><path d="M-4,-7.6 L-7,-8.6"/>
+            </g>
+          </g>
+
+          <!-- Adelaide Airport（非編號停留點） -->
+          <circle class="m-ring" cx="268.8" cy="140" r="5"/>
+          <text class="m-name" x="249.6" y="144" text-anchor="end">ADELAIDE AIRPORT</text>
+
+          <!-- 十五個停留點 -->
+          <circle class="m-stop" cx="252.8" cy="182" r="8.5"/>
+          <text class="m-num" x="252.8" y="185.5">10</text>
+          <text class="m-name" x="233.6" y="186" text-anchor="end">GLENELG</text>
+
+          <circle class="m-stop" cx="355.2" cy="152" r="8.5"/>
+          <text class="m-num" x="355.2" y="155.5">11</text>
+          <text class="m-name" x="374.4" y="156">ADELAIDE CBD</text>
+
+          <circle class="m-stop" cx="313.6" cy="206" r="8.5"/>
+          <text class="m-num" x="313.6" y="209.5">13</text>
+          <text class="m-name" x="294.4" y="224" text-anchor="end">PARKLANDS TERMINAL</text>
+
+          <circle class="m-stop" cx="409.6" cy="196" r="8.5"/>
+          <text class="m-num" x="409.6" y="199.5">12</text>
+          <text class="m-name" x="428.8" y="204">HAHNDORF</text>
+
+          <circle class="m-stop" cx="640" cy="226" r="8.5"/>
+          <text class="m-num" x="640" y="229.5">14</text>
+          <text class="m-name" x="640" y="208" text-anchor="middle">THE OVERLAND TRAIN</text>
+
+          <circle class="m-stop" cx="809.6" cy="244" r="8.5"/>
+          <text class="m-num" x="809.6" y="247.5">01</text>
+          <text class="m-name" x="790.4" y="248" text-anchor="end">MELBOURNE AIRPORT</text>
+
+          <circle class="m-stop" cx="876.8" cy="282" r="8.5"/>
+          <text class="m-num" x="876.8" y="285.5">02</text>
+          <text class="m-name" x="876.8" y="306" text-anchor="middle">SOUTHERN CROSS STATION</text>
+
+          <circle class="m-stop" cx="914" cy="264" r="8.5"/>
+          <text class="m-num" x="914" y="267.5">09</text>
+          <text class="m-join" x="931.2" y="269">~</text>
+          <circle class="m-stop" cx="948" cy="264" r="8.5"/>
+          <text class="m-num" x="948" y="267.5">15</text>
+          <text class="m-name" x="931.2" y="218" text-anchor="middle">MELBOURNE CBD</text>
+
+          <circle class="m-stop" cx="742.4" cy="318" r="8.5"/>
+          <text class="m-num" x="742.4" y="321.5">08</text>
+          <text class="m-name" x="723.2" y="322" text-anchor="end">GEELONG</text>
+
+          <circle class="m-stop" cx="752" cy="372" r="8.5"/>
+          <text class="m-num" x="752" y="375.5">07</text>
+          <text class="m-name" x="732.8" y="376" text-anchor="end">QUEENSCLIFF</text>
+
+          <circle class="m-stop" cx="808" cy="402" r="8.5"/>
+          <text class="m-num" x="808" y="405.5">06</text>
+          <text class="m-name" x="808" y="448" text-anchor="middle">SEAROAD FERRIES</text>
+
+          <circle class="m-stop" cx="864" cy="372" r="8.5"/>
+          <text class="m-num" x="864" y="375.5">05</text>
+          <text class="m-name" x="864" y="396" text-anchor="middle">SORRENTO</text>
+
+          <circle class="m-stop" cx="924.8" cy="356" r="8.5"/>
+          <text class="m-num" x="924.8" y="359.5">03</text>
+          <text class="m-name" x="944" y="360">RYE</text>
+
+          <circle class="m-stop" cx="953.6" cy="394" r="8.5"/>
+          <text class="m-num" x="953.6" y="397.5">04</text>
+          <text class="m-name" x="976" y="420" text-anchor="middle">CAPE SCHANCK</text>
+
+          <!-- 指北針 -->
+          <g class="m-north-group" transform="translate(396,0)">
+            <path class="m-north-line" d="M428,98 V66"/>
+            <path class="m-north" d="M424,72 L428,62 L432,72 Z"/>
+            <text class="m-north-txt" x="428" y="116">N</text>
+          </g>
+
+          <!-- 圖例（依發生順序） -->
+          <g class="m-legend" transform="translate(406,0)">
+            <rect class="m-legendbox" x="452" y="36" width="216" height="88"/>
+            <path class="m-ferry" d="M466,58 H494"/>
+            <text class="m-legendtxt" x="502" y="61">Searoad Ferries</text>
+            <path class="m-air" d="M466,82 H494"/>
+            <text class="m-legendtxt" x="502" y="85">Qantas MEL → ADL</text>
+            <path class="m-rail" marker-end="url(#railHead)" d="M466,106 H490"/>
+            <text class="m-legendtxt" x="502" y="109">The Overland · rail</text>
+          </g>
+
+          <!-- 火車（最後繪製，確保不被任何元素覆蓋） -->
+          <g class="m-train" transform="translate(640,252) scale(0.6) translate(-35,-16)">
+            <rect x="4" y="5" width="30" height="19" rx="5"/>
+            <path d="M4,15 H34"/>
+            <rect x="8" y="8.5" width="7" height="4.5" rx="1"/>
+            <rect x="19" y="8.5" width="7" height="4.5" rx="1"/>
+            <circle cx="11.5" cy="27" r="2.6"/>
+            <circle cx="26.5" cy="27" r="2.6"/>
+            <path d="M34,20 H39"/>
+            <rect x="39" y="8" width="27" height="16" rx="3"/>
+            <rect x="43" y="11" width="6" height="5" rx="1"/>
+            <rect x="52" y="11" width="6" height="5" rx="1"/>
+            <circle cx="46" cy="27" r="2.6"/>
+            <circle cx="59" cy="27" r="2.6"/>
+            <path d="M1,31 H68"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="route-map__hint">左右滑動查看完整地圖 →</p>
+
+      <!-- 供螢幕閱讀器與 SEO 的文字版停留順序（畫面上隱藏） -->
+      <figcaption class="route-map__cap">
+        <ol>
+          <li>Melbourne Airport</li>
+          <li>Southern Cross Station</li>
+          <li>Rye</li>
+          <li>Cape Schanck</li>
+          <li>Sorrento</li>
+          <li>Searoad Ferries</li>
+          <li>Queenscliff</li>
+          <li>Geelong</li>
+          <li>Melbourne CBD</li>
+          <li>Glenelg</li>
+          <li>Adelaide CBD</li>
+          <li>Hahndorf</li>
+          <li>Parklands Terminal</li>
+          <li>The Overland Train</li>
+          <li>Melbourne CBD</li>
+        </ol>
+      </figcaption>
+    </figure>
+
     <nav class="series-map" id="seriesMap"></nav>
 
     <main class="grid" id="grid"></main>

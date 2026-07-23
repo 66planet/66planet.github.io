@@ -925,3 +925,220 @@ body[data-series="adelaide"] .grid {
 .link-accent {
   color: var(--accent);
 }
+
+/* ============================================================
+   13. 首頁路線地圖 Route Map
+   ------------------------------------------------------------
+   所有顏色收斂為 .route-map 的區塊級變數（不污染全域）。
+   想把停留點由 map4 鉻黃換成品牌赭紅：把 --map-stop 改成 var(--accent) 即可。
+   SVG 內不含任何硬編碼色碼或 inline style（符合規格 11.2 / 14.2）。
+   ============================================================ */
+.route-map {
+  /* —— 地圖配色（map4 系統）—— */
+  --map-sea: #e5e4e0; /* 海（淡灰） */
+  --map-land: #f6f5f2; /* 陸地（淡沙） */
+  --map-outline: #3f3d38; /* 海岸線／外框（比沙色深一階） */
+  --map-ink: #1f1e1c; /* 圖標與主要線條 */
+  --map-peak: #2b2a26; /* Adelaide Hills 山峰 */
+  --map-feat: #7a776f; /* 地理名稱（斜體） */
+  --map-stop: #f0cc12; /* 停留點圓圈（改 var(--accent) 可融入品牌色） */
+  --map-num: #1f1e1c; /* 停留點編號文字 */
+  --map-rail: #1f1e1c; /* The Overland 鐵道 */
+  --map-ferry: #9a9a9a; /* Searoad 渡輪 */
+  --map-air: #8a6a45; /* Qantas 航線 */
+
+  margin: 26px 0 0;
+}
+
+.route-map__frame {
+  /* 與網站內容等寬（對齊頂欄／系列導引的分隔線）；
+     SVG 等比放大 → 文字與圖標同步變大、留白更充足 */
+  width: 100%;
+  margin: 0;
+}
+
+.route-map__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 提示文字：僅手機可捲動時顯示 */
+.route-map__hint {
+  display: none;
+  margin: 8px 0 0;
+  text-align: center;
+  font-family: var(--grotesk);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 文字版停留順序：畫面隱藏，保留給螢幕閱讀器與 SEO */
+.route-map__cap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* —— SVG 內部樣式（以 class 對應，無硬編碼色）—— */
+.m-sea {
+  fill: var(--map-sea);
+}
+.m-land {
+  fill: var(--map-land);
+  stroke: var(--map-outline);
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.m-peak {
+  fill: var(--map-peak);
+}
+.m-feat {
+  fill: var(--map-feat);
+  font-family: var(--read);
+  font-style: italic;
+  font-size: 11px;
+}
+.m-air {
+  fill: none;
+  stroke: var(--map-air);
+  stroke-width: 1.2;
+  stroke-dasharray: 1 4;
+  stroke-linecap: round;
+}
+.m-air-icon {
+  fill: none;
+  stroke: var(--map-air);
+  stroke-width: 1.15;
+  stroke-linejoin: round;
+}
+.m-rail {
+  fill: none;
+  stroke: var(--map-rail);
+  stroke-width: 1.6;
+  stroke-dasharray: 7 4;
+}
+.m-railhead {
+  fill: none;
+  stroke: var(--map-rail);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.m-ferry {
+  fill: none;
+  stroke: var(--map-ferry);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+.m-icon {
+  fill: none;
+  stroke: var(--map-ink);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.m-icon-solid {
+  fill: var(--map-ink);
+}
+.m-ring {
+  fill: var(--map-land);
+  stroke: var(--map-ink);
+  stroke-width: 1.2;
+}
+.m-stop {
+  fill: var(--map-stop);
+}
+.m-num {
+  fill: var(--map-num);
+  font-family: var(--grotesk);
+  font-size: 9.5px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+.m-name {
+  fill: var(--map-ink);
+  font-family: var(--grotesk);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+}
+.m-train {
+  fill: none;
+  stroke: var(--map-ink);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.m-north {
+  fill: var(--map-outline);
+}
+.m-north-line {
+  fill: none;
+  stroke: var(--map-outline);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.m-north-txt {
+  fill: var(--map-outline);
+  font-family: var(--grotesk);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+.m-legendbox {
+  fill: var(--map-land);
+  stroke: var(--map-outline);
+  stroke-width: 0.85;
+}
+.m-legendtxt {
+  fill: var(--map-outline);
+  font-family: var(--grotesk);
+  font-size: 11px;
+}
+
+/* —— 手機：改為可左右捲動，維持標籤可讀性 —— */
+@media (max-width: 600px) {
+  .route-map__frame {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .route-map__svg {
+    width: 900px; /* 寬幅比例下，於窄螢幕以較寬基準水平捲動，維持標籤清晰 */
+  }
+  .route-map__hint {
+    display: block;
+  }
+}
+
+/* —— 州界（SA / VIC）與 09~15 連接符 —— */
+.m-border {
+  fill: none;
+  stroke: var(--map-outline);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.45;
+}
+.m-border-txt {
+  fill: var(--map-outline);
+  font-family: var(--grotesk);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+.m-join {
+  fill: var(--map-ink);
+  font-family: var(--grotesk);
+  font-size: 13px;
+  font-weight: 600;
+  text-anchor: middle;
+}
